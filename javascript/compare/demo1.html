@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>연산자</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //대입 연산자 : =
+        //비교 연산자 : =>, =<, <, > : true, false
+        //동등 연산자 : ==
+        console.log(1 == 2); //false
+        console.log(1 == 1); //true
+        console.log("one" == "two"); //flase
+        console.log("one" == "one"); //true
+        //일치 연산자 : === : 데이터의 형식도 체크해주는 연산자
+        console.log(1 == "1"); //true
+        console.log(1 === "1"); //false
+
+        var a;
+        console.log(a);
+        var a = null;
+        console.log(a);
+
+        console.log(null == undefined); //true
+        console.log(null === undefined); //false
+
+        //boolean : true/false
+        //number : -1, 0, 1, 2
+        //string : "a", "b", "c"
+        console.log(true == 1); //true
+        console.log(true === 1); //false
+        console.log(true == "1"); //true
+        console.log(true === "1"); //false
+        console.log(0 === -0); //true
+        console.log(NaN === NaN); //false
+
+        //부정 연산자 : !=
+        //부정 연산자 : !== : 데이터 타입까지 동일한 것인지 확인
+        //논리 연산자 : && : and 양쪽 다 true일 때 실행
+        if (true && true) {
+            alert(1); //실행됨
+        }
+        if (true && false) {
+            alert(2); //실행안됨
+        }
+        if (false && true) {
+            alert(3); //실행안됨
+        }
+        if (false && false) {
+            alert(4); //실행안됨
+        }
+        //논리 연산자 : || : or 양쪽 중 하나만 true라도 실행
+        if (true || true) {
+            alert(1); //실행됨
+        }
+        if (true || false) {
+            alert(2); //실행됨
+        }
+        if (false || true) {
+            alert(3); //실행됨
+        }
+        if (false || false) {
+            alert(4); //실행안됨
+        }
+        //논리 연산자 : ! : not 반대로 역전시켜 실행
+        if (!true && !true) {
+            alert(1); //실행안됨
+        }
+        if (!true && !false) {
+            alert(2); //실행안됨
+        }
+        if (!false && !true) {
+            alert(3); //실행안됨
+        }
+        if (!false && !false) {
+            alert(4); //실행됨
+        }
+
+        //자바스크립트에서 숫자 1은 true로 간주함
+        //자바스크립트에서 undefined, null, NaN은 false로 간주함
+        if (0) {
+            alert(1); //실행안됨
+        }
+        if (1) {
+            alert(2); //실행됨
+        }
+        if ("") {
+            alert("빈 문자열"); //실행안됨
+        }
+        if (!undefined) {
+            alert("undefined"); //실행됨
+        }
+        var a;
+        if (!a) {
+            alert("값이 할당되지 않은 변수"); //실행됨
+        }
+        if (!null) {
+            alert("null"); //실행됨
+        }
+        if (!NaN) {
+            alert("NaN"); //실행됨
+        }
+    </script>
+</body>
+
+</html>

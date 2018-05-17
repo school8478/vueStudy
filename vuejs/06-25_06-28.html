@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>스타일 예제</title>
+    <link rel="stylesheet" type="text/css" href="../style/css/style.css" />
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<script>
+    var eventBus = new Vue();
+</script>
+
+<template id="list-template">
+    <ul id="todolist">
+        <li v-for="(a, index) in todolist" v-bind:class="checked(a.done)" @click="doneToggle(index)">
+            <span>{{ a.todo }}</span>
+            <span v-if="a.done">(완료)</span>
+            <span class="close" @click.stop="deleteTodo(index)">&#x00D7;</span>
+        </li>
+    </ul>
+</template>
+<script>
+    Vue.component("list-component", {
+        template : "#list-template",
+        created : function() {
+            eventBus.$on("add-todo", this.addTodo);
+        },
+        data : function() {
+            return {
+                todolist : [
+                    {todo : "영화보기", done : false},
+                    {todo : "주말산책", done : true},
+                    {todo : "ES6학습", done : false},
+                    {todo : "잠실야구장", done : false}
+                ]
+            }
+        },
+        methods : {
+            checked : function(done) {
+                if(done) {
+                    return {checked : true};
+                } else {
+                    return {checked : false};
+                }
+            },
+            addTodo : function(todo) {
+                if (todo !== "") {
+                    this.todolist.push({todo : todo, done : false});
+                }
+            },
+            doneToggle : function(index) {
+                this.todolist[index].done = !this.todolist[index].done;
+            },
+            deleteTodo : function(index) {
+                this.todolist.splice(index, 1);
+            }
+        }
+    });
+</script>
+
+<template id="input-template">
+    <div>
+        <input class="input" type="text" id="tesk" v-model.trim="todo" placeholder="입력 후 엔터!" @keyup.enter="addTodo" />
+        <span class="addButton" @click="addTodo">추 가</span>
+    </div>
+</template>
+<script>
+    Vue.component("input-component", {
+        template : "#input-template",
+        data : function() {
+            return {todo : ""};
+        },
+        methods : {
+            addTodo : function() {
+                eventBus.$emit("add-todo", this.todo);
+                this.todo = "";
+            }
+        }
+    });
+</script>
+
+<body>
+    <div id="todolistapp">
+        <div id="header" class="header">
+            <h2>Todo List App</h2>
+            <input-component></input-component>
+        </div>
+        <list-component></list-component>
+    </div>
+
+    
+    <script>
+        Vue.config.devtools = true;
+        var vm = new Vue({
+            el : "#todolistapp"
+        });
+    </script>
+</body>
+</html>

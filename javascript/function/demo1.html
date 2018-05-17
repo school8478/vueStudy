@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>함수</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //함수 (재사용성, 유지보수의 용이, 가독성)
+        /*
+        function 함수명([인자...[,인자]]){
+            코드
+            return 반환값
+        }
+        */
+        function numbering(){
+            var i = 0;
+            while(i < 20){
+                document.write(i + "<br />");
+                i += 1;
+            };
+        };
+        for (var i = 0; i < 1000; i++){
+            numbering();
+        };
+
+        //함수 정의
+        /*
+        numbering = function(){
+            var i = 0;
+            while(i < 10){
+                document.write(i);
+                i += 1;
+            }
+        }
+        
+        function numbering(){
+           var i = 0;
+            while(i < 10){
+                document.write(i);
+                i += 1;
+            } 
+        }
+        numbering();
+
+        //익명함수 : 1회성 함수
+        (function(){
+            var i = 0;
+            while(i < 10){
+                document.write(i);
+                i += 1;
+            }
+        })();
+        */
+    </script>
+</body>
+
+</html>

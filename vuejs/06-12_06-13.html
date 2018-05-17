@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- HTML 케밥 표기법으로 표기해야 함 -->
+            <list-component my-message="Hello"></list-component>
+            <list-component my-message="씬짜오"></list-component>
+            <list-component my-message="니하오마"></list-component>
+        </ul>
+    </div>
+    <!-- 카멜 표기법으로 사용한 케이스일 경우 -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <template id="listTemplate">
+        <li>{{myMessage}}</li>
+    </template>
+    <script>
+        var data = {nowTS : 0};
+        Vue.component("list-component", {
+            template : "#listTemplate",
+            props : ["myMessage"]
+        });
+
+        Vue.config.devtools = true;
+        var v = new Vue({
+            el : "#app"
+        });
+    </script>
+</body>
+</html>

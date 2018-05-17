@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>스타일 예제</title>
+    <link rel="stylesheet" type="text/css" href="../style/css/style.css" />
+</head>
+<body>
+    <div id="todolistapp">
+        <div id="header" class="header">
+            <h2>Todo List App</h2>
+            <input class="input" type="text" id="tesk" v-model.trim="todo" placeholder="입력 후 엔터!" @keyup.enter="addTodo" />
+            <span class="addButton" @click="addTodo">추 가</span>
+        </div>
+        <ul id="todolist">
+            <!--
+            <li>
+                <span>Task 1</span>
+                <span class="close">&#x00D7;</span>
+            </li>
+            <li class="checked">
+                <span>Task 2</span>
+                <span>(완료)</span>
+                <span class="close">&#x00D7;</span>
+            </li>
+            <li>
+                <span>Task 3</span>
+                <span class="close">&#x00D7;</span>
+            </li>
+            -->
+            <li v-for="(a, index) in todolist" v-bind:class="checked(a.done)" @click="doneToggle(index)">
+                <span>{{ a.todo }}</span>
+                <span v-if="a.done">(완료)</span>
+                <span class="close" @click.stop="deleteTodo(index)">&#x00D7;</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el : "#todolistapp",
+            data : {
+                todo : "",
+                todolist : [
+                    { todo : "영화보기", done : false },
+                    { todo : "주말 산책", done : true },
+                    { todo : "ES6 학습", done : false },
+                    { todo : "잠실 야구장", done : false }
+                ]
+            },
+            methods : {
+                checked : function(done) {
+                    if (done) {
+                        return {checked : true};
+                    } else {
+                        return {checked : false};
+                    }
+                },
+                addTodo : function(e) {
+                    if (this.todo !== "") {
+                        this.todolist.push({ todo : this.todo, done : false });
+                        this.todo = "";
+                    }
+                },
+                deleteTodo : function(index) {
+                    this.todolist.splice(index, 1);
+                },
+                doneToggle : function(index) {
+                    this.todolist[index].done = !this.todolist[index].done;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

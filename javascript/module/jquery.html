@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>모듈</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>empty</li>
+        <li>empty</li>
+        <li>empty</li>
+        <li>empty</li>
+    </ul>
+    <input type="button" value="execute" id="execute_btn" />
+    <!-- jQuery JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <!-- basic JS -->
+    <script type="text/javascript">
+        //Jquery를 통한 문법
+        /*
+        $(function(){
+            $("#execute_btn").click(function(){
+                $("#list li").text("coding everybody");
+            });
+        });
+        */
+       //javascript를 통한 문법
+       function addEvent(target, eventType, eventHandler, useCapture) {
+           if (target.addEventListener) {
+               target.addEventListener(eventType, eventHandler, useCapture?useCapture:false);
+           } else if (target.attachEvent) {
+               var r = target.attachEvent("on"+eventType, eventHandler);
+           };
+       };
+       function clickHandler(event) {
+           var nav = document.getElementById("list");
+           for (var i = 0; i < nav.childNodes.length; i++) {
+               console.log(i);
+               var child = nav.childNodes[i];
+               if (child.nodeType==3)
+                    continue;
+               child.innerText = "Coding everybody";
+           }
+           //event.target.className = "selected";
+       }
+       addEvent(document.getElementById("execute_btn"), "click", clickHandler);
+    </script>
+
+
+    
+</body>
+
+</html>

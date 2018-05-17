@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- HTML 케밥 표기법으로 표기해야 함 -->
+            <list-component message="Hello" v-bind:count="100" v-bind:countries="['미국', '영국', '호주']"></list-component>
+            <list-component message="씬짜오" v-bind:count="21" v-bind:countries="['베트남']"></list-component>
+            <list-component message="니하오마" v-bind:countries="['중국', '타이완']"></list-component>
+            <list-component v-bind:count="1000"></list-component>
+        </ul>
+    </div>
+    <!-- 카멜 표기법으로 사용한 케이스일 경우 -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <template id="listTemplate">
+        <li>{{message}}</li>
+    </template>
+    <script>
+        var data = {nowTS : 0};
+        Vue.component("list-component", {
+            template : "#listTemplate",
+            props : {
+                message : {type:String, default:"안녕하세요"},
+                count : {type:Number, required:true},
+                countries : {
+                    type : Array,
+                    default : function() {
+                        return ["대한민국"];
+                    }
+                }
+            }            
+        });
+
+        Vue.config.devtools = true;
+        var v = new Vue({
+            el : "#app"
+        });
+    </script>
+</body>
+</html>

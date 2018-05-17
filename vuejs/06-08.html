@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<!-- template 구조 시작 -->
+<script type="text/javascript">
+    Vue.component("option-component", {
+        template : "<option>hello</option>"
+    });
+</script>
+<script type="text/x-template" id="selectTemplate">
+    <select>
+        <option-component></option-component>
+        <option-component></option-component>
+        <option-component></option-component>
+        <option-component></option-component>
+        <option-component></option-component>
+    </select>
+</script>
+<script type="text/javascript">
+    Vue.component("select-component", {
+        template : "#selectTemplate"
+    })
+</script>
+<!-- template 구조 종료 -->
+<body>
+    <div id="app">
+        <select-component></select-component>
+    </div>
+    <script>
+        Vue.config.devtools = true;
+        var v = new Vue({
+            el : "#app"
+        });
+    </script>
+</body>
+</html>

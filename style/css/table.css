@@ -1,0 +1,15 @@
+#list {
+  width: 400px;
+  border: 1px solid #000;
+  border-collapse: collapse; }
+  #list th {
+    text-align: center;
+    border: 1px solid #000; }
+  #list td {
+    text-align: center;
+    border: 1px solid #000; }
+  #list thead tr {
+    color: #ffff00;
+    background: #800080; }
+
+/*# sourceMappingURL=table.css.map */

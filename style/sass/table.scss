@@ -1,0 +1,19 @@
+#list {
+    width:400px;
+    border:1px solid #000;
+    border-collapse:collapse;
+    th {
+        text-align:center;
+        border:1px solid #000; 
+    }
+    td {
+        text-align:center;
+        border:1px solid #000;
+    }
+    thead {
+        tr {
+            color:#ffff00;
+            background:#800080;
+        }
+    }
+}

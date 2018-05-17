@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 8px 8px 8px 40px;
+    background: #eee;
+    font-size: 14px;
+    transition: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  ul li:hover {
+    background: #ddd; }
+  ul li.checked {
+    background: #bbb;
+    color: #fff;
+    text-decoration: line-through; }
+  ul li.checked:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0px 1px 1px 0px; }
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 16px 8px 16px; }
+
+.close:hover {
+  background-color: #f44336;
+  color: #fff; }
+
+.header {
+  padding: 30px;
+  text-align: center;
+  background-color: #800080;
+  color: #ffff00; }
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.input {
+  float: left;
+  width: 75%;
+  height: 35px;
+  padding: 10px;
+  font-size: 16px;
+  border: none; }
+
+.addButton {
+  float: left;
+  width: 25%;
+  height: 35px;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #d9d9d9;
+  color: #555; }
+
+.addButton:hover {
+  background: #bbb; }
+
+.completed {
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */

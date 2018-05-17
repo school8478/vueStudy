@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>객체</title>
+</head>
+
+<body>
+    <ul>
+    <script type="text/javascript">
+        //객체를 만드는 방법
+        /*
+        var grades = {"egoing":10, "k8805":6, "soroalgi":80};
+        console.log(grades);
+
+        var grade = {};
+        grade["egoing"] = 10;
+        grade["k8805"] = 6;
+        grade["sorialgi"] = 80;
+        console.log(grade);
+
+        //조합이 가능함
+        console.log(grade["k8805"]);
+        console.log(grade["k88"+"05"]); 
+        //조합이 불가능하지만 간결함
+        console.log(grade.k8805);
+        */
+
+        //객체를 다루는 법
+        /*
+        var grades = {"egoing":10, "k8805":6, "soroalgi":80};
+        //key라는 변수가 생성이 되며 해당 for문을 실행함
+        for (key in grades) {
+            console.log(key);
+            console.log(grades[key]);
+            document.write("key : " + key + "value : " + grades[key] + "<br />");
+        }
+        */
+        var grades = {"egoing":10, "k8805":6, "soroalgi":80};
+        for (var name in grades) {
+            document.write("<li>key : " + name + ", value : " + grades[name] + "</li>");            
+        }
+    </script>
+    </ul>
+</body>
+
+</html>

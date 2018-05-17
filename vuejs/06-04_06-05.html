@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <style>
+        
+    </style>
+</head>
+<!--
+<template id="helloTemplate">
+    <div>hello word!!!</div>
+</template>
+-->
+<script type="text/x-template" id="helloTemplate">
+    <div>hello word!!!</div>
+</script>
+<body>
+    <div id="app">
+        <hello-component></hello-component>
+        <hello-component></hello-component>
+        <hello-component></hello-component>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        Vue.component("hello-component", {
+            template : "#helloTemplate"
+        });
+        Vue.config.devtools = true;
+        var v = new Vue({
+            el : "#app"
+        });
+    </script>
+</body>
+</html>

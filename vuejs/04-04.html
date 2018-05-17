@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>인라인 핸들러 메서드</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <style>
+        html, body {margin:0;padding:0;}
+        #example {height:98vh; min-height:100%; padding:5px;box-sizing:border-box;}
+    </style>
+</head>
+<body>
+    <div id="example" @contextmenu="ctxStop">
+        <a href="http://facebook.com" @click="confirmFB">페이스북</a>
+    </div>
+    
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el : "#example",
+            methods: {
+                ctxStop : function(e) {
+                    e.preventDefault();
+                },
+                confirmFB : function(e) {
+                    if (!confirm("페이스북으로 이동할까요?")) {
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

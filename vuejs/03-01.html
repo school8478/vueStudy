@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>el/data 속성</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style></style>
+</head>
+<body>
+    <div id="test">
+        {{name}}
+    </div>
+    <script>
+        var model = {
+            name : "홍길동"
+        };
+        var vm = new Vue({
+            el : "#test",
+            data : model
+        });
+        //크롬 브라우저 개발자 console에서 실행하면 모두 동일하게 작동하며 변경사항은 즉시 작동함
+        //vm.name = "이몽룡";
+        //model.name = "황단이";
+        //vm.$data.name = "성춘향";
+    </script>
+</body>
+</html>

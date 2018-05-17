@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>반복문</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //조건문과 반복문은 서로 안에서 동작할 수 있음
+        /*
+        for (var i = 0; i < 10; i++) {
+            if (i === 5) {
+                break; //반복문을 종료
+            }
+            document.write("coding evertbody"+ i +"<br />");
+        }
+        */
+         //조건문과 반복문은 서로 안에서 동작할 수 있음
+         for (var i = 0; i < 10; i++) {
+            if (i === 5) {
+                continue; //반복문을 해당부분만 종료 후 다시 시작
+            }
+            document.write("coding evertbody"+ i +"<br />");
+        }
+    </script>
+</body>
+
+</html>
